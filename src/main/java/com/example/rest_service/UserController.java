@@ -34,7 +34,5 @@ public class UserController {
         userService.updateUser(userDTO);
     }
 
-    public void patchUser(UserDTO userDTO) {
-        userService.patchUser(userDTO);
-    }
+
 }

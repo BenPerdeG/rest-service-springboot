@@ -44,21 +44,5 @@ public class UserService {
         return null;
     }
 
-    public User patchUser(UserDTO userDTO) {
-        User existingUser = userDAO.findById(userDTO.getId()).orElse(null);
-        if (existingUser != null) {
-            if (userDTO.getEmail() != null) {
-                existingUser.setEmail(userDTO.getEmail());
-            }
-            if (userDTO.getFullName() != null) {
-                existingUser.setFullName(userDTO.getFullName());
-            }
-            if (userDTO.getPassword() != null) {
-                existingUser.setPassword(userDTO.getPassword());
-            }
-            return userDAO.save(existingUser);
-        }
-        return null;
-    }
 
 }
