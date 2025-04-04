@@ -11,6 +11,9 @@ public class UserDTO {
         this.password = user.getPassword();
     }
 
+    public UserDTO() {
+    }
+
     public int getId() {
         return id;
     }

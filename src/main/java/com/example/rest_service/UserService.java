@@ -29,8 +29,36 @@ public class UserService {
         return userDAO.save(u);
     }
 
-//    public void deleteUser(int id) {
-//        userDAO.delete(id);
-//    }
+    public void deleteUser(int id) {
+        userDAO.deleteById(id);
+    }
+
+    public User updateUser(UserDTO userDTO) {
+        User existingUser = userDAO.findById(userDTO.getId()).orElse(null);
+        if (existingUser != null) {
+            existingUser.setEmail(userDTO.getEmail());
+            existingUser.setFullName(userDTO.getFullName());
+            existingUser.setPassword(userDTO.getPassword());
+            return userDAO.save(existingUser);
+        }
+        return null;
+    }
+
+    public User patchUser(UserDTO userDTO) {
+        User existingUser = userDAO.findById(userDTO.getId()).orElse(null);
+        if (existingUser != null) {
+            if (userDTO.getEmail() != null) {
+                existingUser.setEmail(userDTO.getEmail());
+            }
+            if (userDTO.getFullName() != null) {
+                existingUser.setFullName(userDTO.getFullName());
+            }
+            if (userDTO.getPassword() != null) {
+                existingUser.setPassword(userDTO.getPassword());
+            }
+            return userDAO.save(existingUser);
+        }
+        return null;
+    }
 
 }

@@ -27,7 +27,14 @@ public class UserController {
         userService.newUser(userDTO);
     }
 
-//    public void removeUser(int id) {
-//        userService.deleteUser(id);
-//    }
+    public void removeUser(int id) {
+        userService.deleteUser(id);
+    }
+    public void updateUser(UserDTO userDTO) {
+        userService.updateUser(userDTO);
+    }
+
+    public void patchUser(UserDTO userDTO) {
+        userService.patchUser(userDTO);
+    }
 }
